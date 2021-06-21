@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-webapp
+  labels:
+    app: java-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-webapp
+  template:
+    metadata:
+      labels:
+        app: java-webapp
+    spec:
+      containers:
+      - name: java-webapp
+        image: sushmita2210/javamicro:version1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
